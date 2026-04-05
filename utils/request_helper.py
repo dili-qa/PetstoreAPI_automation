@@ -9,14 +9,18 @@ def get_request(endpoint, headers=None):
     url = f"{BASE_URL}{endpoint}"
     logger.info(f"GET → {url}")
 
-    response = requests.get(
-        url,
-        headers=headers or HEADERS,
-        timeout=TIMEOUT
-    )
+    try:
+        response = requests.get(
+            url,
+            headers=headers or HEADERS,
+            timeout=TIMEOUT
+        )
+        logger.info(f"Response [{response.status_code}] → {response.text}")
+        return response
 
-    logger.info(f"Response [{response.status_code}] → {response.text}")
-    return response
+    except Exception as e:
+        logger.error(f"GET request failed: {e}")
+        raise
 
 
 def post_request(endpoint, payload=None, headers=None):
@@ -24,12 +28,16 @@ def post_request(endpoint, payload=None, headers=None):
     logger.info(f"POST → {url}")
     logger.info(f"Payload → {payload}")
 
-    response = requests.post(
-        url,
-        json=payload,
-        headers=headers or HEADERS,
-        timeout=TIMEOUT
-    )
+    try:
+        response = requests.post(
+            url,
+            json=payload,
+            headers=headers or HEADERS,
+            timeout=TIMEOUT
+        )
+        logger.info(f"Response [{response.status_code}] → {response.text}")
+        return response
 
-    logger.info(f"Response [{response.status_code}] → {response.text}")
-    return response
+    except Exception as e:
+        logger.error(f"POST request failed: {e}")
+        raise
