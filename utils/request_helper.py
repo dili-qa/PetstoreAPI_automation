@@ -25,7 +25,7 @@ def get_request(endpoint, headers=None):
 
 def post_request(endpoint, payload=None, headers=None):
     url = f"{BASE_URL}{endpoint}"
-    logger.info(f"POST → {url}")
+    logger.info(f"POST -> {url}")
     logger.info(f"Payload → {payload}")
 
     try:
