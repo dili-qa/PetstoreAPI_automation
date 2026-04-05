@@ -6,9 +6,10 @@ LOG_FILE = "test.log"
 
 os.makedirs(LOG_DIR, exist_ok=True)
 
+
 def get_logger(name):
     logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
 
     if not logger.handlers:
         file_handler = logging.FileHandler(f"{LOG_DIR}/{LOG_FILE}")

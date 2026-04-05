@@ -8,8 +8,8 @@ def before_all(context):
 
 
 def before_scenario(context, scenario):
-    context.token = None   # 🔥 IMPORTANT
     context.response = None
+    context.payload = None
 
 
 def after_scenario(context, scenario):

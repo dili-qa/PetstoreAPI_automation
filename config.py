@@ -1,15 +1,9 @@
-import os
-PROJECT_NAME = "Petstore API Automation"
-BASE_URL = "https://reqres.in/api"
+# config.py ✅ ONLY config
 
-# Environment (can extend later)
-ENV = os.getenv("ENV", "qa")
-
-# Default headers
+BASE_URL = "https://petstore.swagger.io/v2"
 
 HEADERS = {
-    "Content-Type": "application/json",
-    "x-api-key": os.getenv("API_KEY", "reqres-free-v1")
+    "Content-Type": "application/json"
 }
-# Timeout
+
 TIMEOUT = 10

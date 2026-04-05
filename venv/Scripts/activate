@@ -42,10 +42,10 @@ deactivate nondestructive
 if [ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ] ; then
     # transform D:\path\to\venv to /d/path/to/venv on MSYS
     # and to /cygdrive/d/path/to/venv on Cygwin
-    export VIRTUAL_ENV=$(cygpath "D:\Work\QE_Automation_Lab\dtest\Projects\Python\API\ReqresAPI_automation\venv")
+    export VIRTUAL_ENV=$(cygpath "D:\Work\QE_Automation_Lab\dtest\Projects\Python\API\PetstoreAPI_automation\venv")
 else
     # use the path as-is
-    export VIRTUAL_ENV="D:\Work\QE_Automation_Lab\dtest\Projects\Python\API\ReqresAPI_automation\venv"
+    export VIRTUAL_ENV="D:\Work\QE_Automation_Lab\dtest\Projects\Python\API\PetstoreAPI_automation\venv"
 fi
 
 _OLD_VIRTUAL_PATH="$PATH"

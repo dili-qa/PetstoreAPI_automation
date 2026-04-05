@@ -7,37 +7,36 @@ logger = get_logger("API")
 
 def get_request(endpoint, headers=None):
     url = f"{BASE_URL}{endpoint}"
-    logger.info(f"GET → {url}")
+    logger.info(f"GET -> {url}")
 
-    try:
-        response = requests.get(
-            url,
-            headers=headers or HEADERS,
-            timeout=TIMEOUT
-        )
-        logger.info(f"Response [{response.status_code}] → {response.text}")
-        return response
+    response = requests.get(
+        url,
+        headers=headers or HEADERS,
+        timeout=TIMEOUT
+    )
 
-    except Exception as e:
-        logger.error(f"GET request failed: {e}")
-        raise
+    logger.info(f"Response [{response.status_code}]")
+    return response
 
 
 def post_request(endpoint, payload=None, headers=None):
     url = f"{BASE_URL}{endpoint}"
     logger.info(f"POST -> {url}")
-    logger.info(f"Payload → {payload}")
 
-    try:
-        response = requests.post(
-            url,
-            json=payload,
-            headers=headers or HEADERS,
-            timeout=TIMEOUT
-        )
-        logger.info(f"Response [{response.status_code}] → {response.text}")
-        return response
+    response = requests.post(
+        url,
+        json=payload,
+        headers=headers or HEADERS,
+        timeout=TIMEOUTgit
+def delete_request(endpoint, headers=None):
+    url = f"{BASE_URL}{endpoint}"
+    logger.info(f"DELETE -> {url}")
 
-    except Exception as e:
-        logger.error(f"POST request failed: {e}")
-        raise
+    response = requests.delete(
+        url,
+        headers=headers or HEADERS,
+        timeout=TIMEOUT
+    )
+
+    logger.info(f"Response [{response.status_code}]")
+    return response
