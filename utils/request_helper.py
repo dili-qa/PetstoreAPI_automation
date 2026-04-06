@@ -27,7 +27,13 @@ def post_request(endpoint, payload=None, headers=None):
         url,
         json=payload,
         headers=headers or HEADERS,
-        timeout=TIMEOUTgit
+        timeout=TIMEOUT
+    )
+
+    logger.info(f"Response [{response.status_code}]")
+    return response
+
+
 def delete_request(endpoint, headers=None):
     url = f"{BASE_URL}{endpoint}"
     logger.info(f"DELETE -> {url}")
